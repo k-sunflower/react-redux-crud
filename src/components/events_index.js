@@ -14,7 +14,7 @@ class EventsIndex extends Component {
     return (
       <React.Fragment>
         <div>value: {props.value}</div>
-        <button onClick={props.increment}>+1</button>
+        <button onClick={props.increment}>++1</button>
         <button onClick={props.decrement}>-1</button>
       </React.Fragment>
     );
