@@ -1,19 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
+import React from "react";
+import ReactDOM from "react-dom";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
 
-import './index.css';
-import reducer from './reducers'
-import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
+import "./index.css";
+import reducer from "./reducers";
+import EventIndex from "./components/events_index";
+import registerServiceWorker from "./registerServiceWorker";
 
-const store = createStore(reducer)
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <EventIndex />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 registerServiceWorker();
